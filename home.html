@@ -1,0 +1,39 @@
+<section class="repos">
+  <div class="notifier" ng-show="showLoading">Loading...</div>
+  <div class="container" ng-show="hideLoading">
+    <div class="row">
+      <table class="col-md-12">
+        <thead>
+          <tr>
+            <th>
+              URL
+            </th>
+            <th class="hidden-xs">
+              Description
+            </th>
+            <th class="hidden-xs">
+              Forks count
+            </th>
+            <th class="hidden-xs">
+              Stargazers count
+            </th>
+            <th class="hidden-xs">
+              Open issues count
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="repo in repos.items">
+            <td class="name">
+              <a href='#/repo/{{repo.id}}'>{{repo.url}}</a>
+            </td>
+            <td class="name">{{repo.description}}</td>
+            <td class="name">{{repo.forks}}</td>
+            <td class="name">{{repo.stargazers_count}}</td>
+            <td class="name">{{repo.open_issues}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
