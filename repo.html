@@ -1,20 +1,40 @@
-<div class="container">
-  <div class="row">
-    <table class="col-md-12">
-      <thead>
-        <tr>
-          <th>
-            URL
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="issue in issues.items">
-          <td class="name">
-            He{{issue.total_countl}}llo
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<header>
+  <div class="container">
+    <div class="row">
+      <h1>You Searched for {{repo}} by {{user}}</h1>
+      <a ng-href="#/home">Go back</a>
+    </div>
   </div>
-</div>
+</header>
+<section class="repos">
+  <div class="container">
+    <div class="row">
+      <table class="col-md-12">
+        <thead>
+          <tr>
+            <th>
+              URL
+            </th>
+            <th>Title</th>
+            <th>
+              Number
+            </th>
+            <th>State</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="issue in issues.items">
+            <td class="name">
+              {{issue.url}}
+            </td>
+            <td>{{issue.title}}</td>
+            <td>{{issue.number}}</td>
+            <td>{{issue.state}}</td>
+            <td>{{issue.body}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

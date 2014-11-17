@@ -2,7 +2,7 @@ LauraApp = angular.module('LauraApp', ['ngRoute', 'ngResource']);
 
 LauraApp.config(function ($routeProvider) {
   $routeProvider
-    .when('/repo/:id', {
+    .when('/repo/:user/:repo', {
       templateUrl: 'repo.html',
       controller: 'repoController'
     })
@@ -34,10 +34,14 @@ LauraApp.controller('appController', function ($scope, $http) {
 });
 
 /*Issues Controller*/
-LauraApp.controller('repoController', function ($scope, $http) {
+LauraApp.controller('repoController', function ($scope, $http, $routeParams) {
+  $scope.user = $routeParams.user;
+  $scope.repo = $routeParams.repo;
   var onIssuesComplete = function (response) {
-    console.log(response.data);
+    //console.log(response.data);
+    console.log($routeParams.user);
+    console.log($routeParams.repo);
     $scope.issues = response.data;
   }
-  $http.get('https://api.github.com/search/issues?q=repo:devenderdagar/laurang').then(onIssuesComplete);
+  $http.get('https://api.github.com/search/issues?q=repo:' + $scope.user + '/' + $scope.repo).then(onIssuesComplete);
 });

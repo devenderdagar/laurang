@@ -9,17 +9,6 @@
 </head>
 
 <body ng-controller="appController">
-  <header>
-    <div class="container">
-      <div class="row">
-        <h1>Search a Repository!</h1>
-      </div>
-      <div class="row">
-        <input class="col-md-10" type="text" placeholder="Please type repository name here to search!" ng-model="searchRepo">
-        <button class="col-md-1" ng-click="getRepos()">Search</button>
-      </div>
-    </div>
-  </header>
   <div ng-view></div>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>

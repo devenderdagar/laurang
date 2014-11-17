@@ -1,3 +1,16 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <h1>Search a Repository!</h1>
+    </div>
+    <div class="row">
+      <form ng-submit="getRepos()">
+        <input class="col-md-10" type="text" placeholder="Please type repository name here to search!" ng-model="searchRepo">
+        <input type="submit" class="col-md-1" value="Search Now!">
+      </form>
+    </div>
+  </div>
+</header>
 <section class="repos">
   <div class="notifier" ng-show="showLoading">Loading...</div>
   <div class="container" ng-show="hideLoading">
@@ -25,12 +38,13 @@
         <tbody>
           <tr ng-repeat="repo in repos.items">
             <td class="name">
-              <a href='#/repo/{{repo.id}}'>{{repo.url}}</a>
+              <a ng-href='#/repo/{{repo.full_name}}'>{{repo.url}}</a>
             </td>
             <td class="name">{{repo.description}}</td>
             <td class="name">{{repo.forks}}</td>
             <td class="name">{{repo.stargazers_count}}</td>
             <td class="name">{{repo.open_issues}}</td>
+            <hr />
           </tr>
         </tbody>
       </table>

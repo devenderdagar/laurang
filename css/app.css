@@ -6,13 +6,17 @@ body {} header {
   background: #ccc;
   padding-bottom: 25px;
 }
-button {
+input[type='submit'] {
   height: 28px;
   margin-left: 5px;
 }
 .repos {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .hide {
   display: none;
+}
+table > tbody > tr > td {
+  border-top: 1px solid #f2f2f2;
+  padding: 5px 0 10px 0;
 }
