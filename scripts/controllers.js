@@ -28,7 +28,6 @@ LauraApp.controller('appController', function ($scope, $http) {
   $scope.getRepos = function () {
     $scope.showLoading = 1;
     $scope.hideLoading = 0;
-    console.log('REST API called for ' + $scope.searchRepo);
     $http.get('https://api.github.com/search/repositories?q=' + $scope.searchRepo).then(onReposComplete);
   }
 });
@@ -38,9 +37,6 @@ LauraApp.controller('repoController', function ($scope, $http, $routeParams) {
   $scope.user = $routeParams.user;
   $scope.repo = $routeParams.repo;
   var onIssuesComplete = function (response) {
-    //console.log(response.data);
-    console.log($routeParams.user);
-    console.log($routeParams.repo);
     $scope.issues = response.data;
   }
   $http.get('https://api.github.com/search/issues?q=repo:' + $scope.user + '/' + $scope.repo).then(onIssuesComplete);

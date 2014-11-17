@@ -14,7 +14,7 @@
 <section class="repos">
   <div class="notifier" ng-show="showLoading">Loading...</div>
   <div class="container" ng-show="hideLoading">
-    <div class="row">
+    <div class="row" ng-if="repos.total_count">
       <table class="col-md-12">
         <thead>
           <tr>
@@ -44,10 +44,12 @@
             <td class="name">{{repo.forks}}</td>
             <td class="name">{{repo.stargazers_count}}</td>
             <td class="name">{{repo.open_issues}}</td>
-            <hr />
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="row" ng-if="repos.total_count == 0">
+      Sorry no repository found!
     </div>
   </div>
 </section>
